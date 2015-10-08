@@ -5,25 +5,32 @@ var ReactDOM = require('react-dom');
 Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
+var SignInComponent = require('./components/SignInComponent');
 var app = document.getElementById('app')
 
 var Router = Backbone.Router.extend({
   routes: {
     '': 'home',
-    'signup': 'signup',
-    'signin': 'signin'
+    'signUp': 'signup',
+    'signIn': 'signin',
+    'blog' : 'blog',
+    'featured': 'featured',
+    'aboutUs': 'aboutUs'
   },
   home: function(){
 
   },
   signup: function(){
     ReactDOM.render(
-      <SignUpComponent / >,
+      <SignUpComponent router={r}/ >,
       app
     );
   },
   signin: function(){
-
+    ReactDOM.render(
+      <SignInComponent router={r} />,
+      app
+    );
   }
 });
 

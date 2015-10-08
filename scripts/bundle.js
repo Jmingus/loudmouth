@@ -31707,10 +31707,18 @@ module.exports = require('./lib/React');
 
 var React = require('react');
 var $ = require('jquery');
+var Backbone = require('backbone');
 
 module.exports = React.createClass({
   displayName: 'exports',
 
+  componentWillMount: function componentWillMount() {
+    var _this = this;
+
+    this.props.router.on('route', function () {
+      _this.forceUpdate();
+    });
+  },
   componentDidMount: function componentDidMount() {
     $(document).ready(function () {
       $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart', function (e) {
@@ -31720,6 +31728,122 @@ module.exports = React.createClass({
     });
   },
   render: function render() {
+    var currentPage = Backbone.history.getFragment();
+
+    var leftLinksMain = [React.createElement(
+      'li',
+      { key: 'featured', className: currentPage === 'featured' ? 'active nav-link' : "nav-link " },
+      React.createElement(
+        'a',
+        { href: '#featured' },
+        'Featured'
+      )
+    ), React.createElement(
+      'li',
+      { key: 'aboutUs', className: currentPage === 'aboutUs' ? 'active nav-link' : "nav-link " },
+      React.createElement(
+        'a',
+        { href: '#aboutUs' },
+        'About Us'
+      )
+    )];
+    var rightLinksMain = [];
+    if (Parse.User.current()) {
+      rightLinksMain.push(React.createElement(
+        'li',
+        { key: 'blog', className: currentPage === 'blog' ? 'active nav-link ' : 'nav-link ' },
+        React.createElement(
+          'a',
+          { href: '#blog' },
+          'Blog'
+        )
+      ));
+      rightLinksMain.push(React.createElement(
+        'li',
+        { key: 'signOut', className: 'nav-link ' },
+        React.createElement(
+          'a',
+          { href: '#', onClick: this.signOut },
+          'Sign Out'
+        )
+      ));
+    } else {
+      rightLinksMain.push(React.createElement(
+        'li',
+        { key: 'signIn', className: currentPage === 'signIn' ? 'active nav-link ' : 'nav-link ' },
+        React.createElement(
+          'a',
+          { href: '#signIn' },
+          'Sign In'
+        )
+      ));
+      rightLinksMain.push(React.createElement(
+        'li',
+        { key: 'signUp', className: currentPage === 'signUp' ? 'active nav-link ' : 'nav-link ' },
+        React.createElement(
+          'a',
+          { href: '#signUp' },
+          'Sign Up'
+        )
+      ));
+    }
+    var leftLinksSlide = [React.createElement(
+      'li',
+      { key: 'featured', className: currentPage === 'featured' ? 'active ' : "" },
+      React.createElement(
+        'a',
+        { href: '#featured' },
+        'Featured'
+      )
+    ), React.createElement(
+      'li',
+      { key: 'aboutUs', className: currentPage === 'aboutUs' ? 'active ' : "" },
+      React.createElement(
+        'a',
+        { href: '#aboutUs' },
+        'About Us'
+      )
+    )];
+    var rightLinksSlide = [];
+    if (Parse.User.current()) {
+      rightLinksSlide.push(React.createElement(
+        'li',
+        { key: 'blog', className: currentPage === 'blog' ? 'active ' : '' },
+        React.createElement(
+          'a',
+          { href: '#blog' },
+          'Blog'
+        )
+      ));
+      rightLinksSlide.push(React.createElement(
+        'li',
+        { key: 'signOut' },
+        React.createElement(
+          'a',
+          { href: '#', onClick: this.signOut },
+          'Sign Out'
+        )
+      ));
+    } else {
+      rightLinksSlide.push(React.createElement(
+        'li',
+        { key: 'signIn', className: currentPage === 'signIn' ? 'active ' : '' },
+        React.createElement(
+          'a',
+          { href: '#signIn' },
+          'Sign In'
+        )
+      ));
+      rightLinksSlide.push(React.createElement(
+        'li',
+        { key: 'signUp', className: currentPage === 'signUp' ? 'active ' : '' },
+        React.createElement(
+          'a',
+          { href: '#signUp' },
+          'Sign Up'
+        )
+      ));
+    }
     return React.createElement(
       'header',
       { className: 'centered-navigation', role: 'banner' },
@@ -31746,24 +31870,7 @@ module.exports = React.createClass({
           React.createElement(
             'ul',
             { id: 'js-centered-navigation-menu', className: 'centered-navigation-menu show' },
-            React.createElement(
-              'li',
-              { className: 'nav-link' },
-              React.createElement(
-                'a',
-                { href: 'javascript:void(0)' },
-                'Featured'
-              )
-            ),
-            React.createElement(
-              'li',
-              { className: 'nav-link' },
-              React.createElement(
-                'a',
-                { href: 'javascript:void(0)' },
-                'About Us'
-              )
-            ),
+            leftLinksMain,
             React.createElement(
               'li',
               { className: 'nav-link logo' },
@@ -31777,24 +31884,7 @@ module.exports = React.createClass({
                 )
               )
             ),
-            React.createElement(
-              'li',
-              { className: 'nav-link' },
-              React.createElement(
-                'a',
-                { href: 'javascript:void(0)' },
-                'Sign In'
-              )
-            ),
-            React.createElement(
-              'li',
-              { className: 'nav-link' },
-              React.createElement(
-                'a',
-                { href: '#signup' },
-                'Sign Up'
-              )
-            )
+            rightLinksMain
           )
         )
       ),
@@ -31804,50 +31894,21 @@ module.exports = React.createClass({
         React.createElement(
           'ul',
           null,
-          React.createElement(
-            'li',
-            null,
-            React.createElement(
-              'a',
-              { href: 'javascript:void(0)' },
-              'Sign In'
-            )
-          ),
-          React.createElement(
-            'li',
-            null,
-            React.createElement(
-              'a',
-              { href: '#signup' },
-              'Sign Up'
-            )
-          ),
-          React.createElement(
-            'li',
-            null,
-            React.createElement(
-              'a',
-              { href: 'javascript:void(0)' },
-              'Featured'
-            )
-          ),
-          React.createElement(
-            'li',
-            null,
-            React.createElement(
-              'a',
-              { href: 'javascript:void(0)' },
-              'About Us'
-            )
-          )
+          rightLinksSlide,
+          leftLinksSlide
         )
       ),
       React.createElement('div', { className: 'js-menu-screen sliding-panel-fade-screen' })
     );
+  },
+  signOut: function signOut(e) {
+    e.preventDefault();
+    Parse.User.logOut();
+    this.props.router.navigate('', { trigger: true });
   }
 });
 
-},{"jquery":4,"react":160}],162:[function(require,module,exports){
+},{"backbone":1,"jquery":4,"react":160}],162:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -31866,39 +31927,34 @@ module.exports = React.createClass({
       null,
       React.createElement(
         "form",
-        { id: "signup" },
+        { id: "signIn", onSubmit: this.signIn },
         React.createElement(
           "h1",
           null,
-          "Sign Up"
+          "Sign In"
         ),
-        React.createElement("input", { type: "text", placeholder: "Username", ref: "userName" }),
-        React.createElement("input", { type: "password", placeholder: "Password", ref: "password" }),
         React.createElement(
           "div",
           null,
-          "Do you want your blog to be public?"
-        ),
-        React.createElement(
-          "label",
-          { className: "label-switch" },
-          React.createElement("input", { type: "checkbox", ref: "blogPrivacy" }),
-          React.createElement("div", { className: "checkbox" })
+          React.createElement("input", { type: "text", placeholder: "Username", ref: "userName" }),
+          React.createElement("input", { type: "password", placeholder: "Password", ref: "password" }),
+          React.createElement(
+            "button",
+            { type: "submit" },
+            "Submit"
+          )
         )
       )
     );
   },
-  signUp: function signUp(e) {
+  signIn: function signIn(e) {
     var _this = this;
 
     e.preventDefault();
-    Parse.User.signUp({
-      username: this.refs.userName.value,
-      password: this.refs.password.value,
-      blogPrivacy: this.refs.blogPrivacy.checked,
-      admin: false
-    }, {
-      success: function success(user) {},
+    Parse.User.logIn(this.refs.userName.value, this.refs.password.value, {
+      success: function success(user) {
+        _this.props.router.navigate('blog', { trigger: true });
+      },
       error: function error(user, err) {
         _this.setState({
           error: err.message
@@ -31910,25 +31966,108 @@ module.exports = React.createClass({
 
 },{"react":160}],163:[function(require,module,exports){
 'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: 'exports',
+
+  getInitialState: function getInitialState() {
+    return {
+      error: null
+    };
+  },
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'form',
+        { id: 'signup', onSubmit: this.signUp },
+        React.createElement(
+          'h1',
+          null,
+          'Sign Up'
+        ),
+        React.createElement(
+          'div',
+          { className: 'left' },
+          React.createElement('input', { type: 'text', placeholder: 'Username', ref: 'userName' }),
+          React.createElement('input', { type: 'password', placeholder: 'Password', ref: 'password' }),
+          React.createElement(
+            'button',
+            { type: 'submit' },
+            'Submit'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'right' },
+          React.createElement(
+            'div',
+            { className: 'question' },
+            'Do you want your blog to be public?'
+          ),
+          React.createElement(
+            'label',
+            { className: 'label-switch' },
+            React.createElement('input', { type: 'checkbox', ref: 'blogPrivacy' }),
+            React.createElement('div', { className: 'checkbox' })
+          )
+        )
+      )
+    );
+  },
+  signUp: function signUp(e) {
+    var _this = this;
+
+    e.preventDefault();
+    var user = new Parse.User();
+    user.signUp({
+      username: this.refs.userName.value,
+      password: this.refs.password.value,
+      blogPrivacy: this.refs.blogPrivacy.checked,
+      admin: false
+    }, {
+      success: function success(user) {
+        _this.props.router.navigate('blog', { trigger: true });
+      },
+      error: function error(user, err) {
+        _this.setState({
+          error: err.message
+        });
+      }
+    });
+  }
+});
+
+},{"react":160}],164:[function(require,module,exports){
+'use strict';
 var React = require('react');
 var Backbone = require('backbone');
 var ReactDOM = require('react-dom');
 Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
+var SignInComponent = require('./components/SignInComponent');
 var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
   routes: {
     '': 'home',
-    'signup': 'signup',
-    'signin': 'signin'
+    'signUp': 'signup',
+    'signIn': 'signin',
+    'blog': 'blog',
+    'featured': 'featured',
+    'aboutUs': 'aboutUs'
   },
   home: function home() {},
   signup: function signup() {
-    ReactDOM.render(React.createElement(SignUpComponent, null), app);
+    ReactDOM.render(React.createElement(SignUpComponent, { router: r }), app);
   },
-  signin: function signin() {}
+  signin: function signin() {
+    ReactDOM.render(React.createElement(SignInComponent, { router: r }), app);
+  }
 });
 
 var r = new Router();
@@ -31936,7 +32075,7 @@ Backbone.history.start();
 
 ReactDOM.render(React.createElement(NavComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/NavComponent":161,"./components/SignUpComponent":162,"backbone":1,"react":160,"react-dom":5}]},{},[163])
+},{"./components/NavComponent":161,"./components/SignInComponent":162,"./components/SignUpComponent":163,"backbone":1,"react":160,"react-dom":5}]},{},[164])
 
 
 //# sourceMappingURL=bundle.js.map

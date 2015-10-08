@@ -573,7 +573,7 @@ picture {
             text-align: left;
             width: 12em; } }
 
-#signup {
+#signup, #signIn {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
@@ -581,38 +581,44 @@ picture {
   padding: 2em;
   margin-top: 5em;
   box-shadow: 2px 2px 2px #000; }
-  #signup::after {
+  #signup::after, #signIn::after {
     clear: both;
     content: "";
     display: table; }
-  #signup input {
+  #signup .left, #signIn .left {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%; }
-    #signup input:last-child {
+    #signup .left:last-child, #signIn .left:last-child {
       margin-right: 0; }
-  #signup label {
+  #signup .right, #signIn .right {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%; }
-    #signup label:last-child {
+    #signup .right:last-child, #signIn .right:last-child {
       margin-right: 0; }
-  #signup h1 {
+  #signup h1, #signIn h1 {
     font-size: 32px;
     color: #EBD8B4; }
-  #signup div {
+  #signup div, #signIn div {
     color: #EBD8B4;
     text-align: center; }
-  #signup label .checkbox {
+  #signup label .checkbox, #signIn label .checkbox {
     margin: 0 auto; }
-  #signup label input[type='checkbox'] {
+  #signup label input[type='checkbox'], #signIn label input[type='checkbox'] {
     opacity: 0; }
+  #signup .question, #signIn .question {
+    font-size: 24px; }
+  #signup button, #signIn button {
+    width: 30%;
+    background: #BCA97A;
+    color: #EAEAEA; }
 
 .centered-navigation ul.centered-navigation-menu.show {
   display: none; }
 
-@media screen and (min-width: 859px) {
+@media screen and (min-width: 860px) {
   .centered-navigation ul.centered-navigation-menu.show {
     display: block; } }
