@@ -1,47 +1,48 @@
 var React = require('react');
+var $ = require('jquery');
+
 
 module.exports = React.createClass({
+  componentDidMount: function() {
+        $(document).ready(function(){
+        $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
+        $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+        e.preventDefault();
+      });
+    });
+  },
   render: function(){
     return(
     <header className="centered-navigation" role="banner">
       <div className="centered-navigation-wrapper">
-        <a href="javascript:void(0)" className="mobile-logo">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image" />
+        <a href="#" className="mobile-logo logo">
+          <div>LM</div>
         </a>
-        <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" className="centered-navigation-mobile-menu">MENU</a>
+        <a href="javascript:void(0)" className="centered-navigation-mobile-menu js-menu-trigger sliding-panel-button">MENU</a>
         <nav role="navigation">
           <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
-            <li className="nav-link"><a href="javascript:void(0)">Products</a></li>
+            <li className="nav-link"><a href="javascript:void(0)">Featured</a></li>
             <li className="nav-link"><a href="javascript:void(0)">About Us</a></li>
-            <li className="nav-link"><a href="javascript:void(0)">Contact</a></li>
             <li className="nav-link logo">
-              <a href="javascript:void(0)" className="logo">
-                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image" />
+              <a href="#" className="logo">
+                <div>LM</div>
               </a>
             </li>
-            <li className="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
-            <li className="nav-link more"><a href="javascript:void(0)">More</a>
-              <ul className="submenu">
-                <li><a href="javascript:void(0)">Submenu Item</a></li>
-                <li><a href="javascript:void(0)">Another Item</a></li>
-                <li className="more"><a href="javascript:void(0)">Item with submenu</a>
-                  <ul className="submenu">
-                    <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                    <li><a href="javascript:void(0)">Another Item</a></li>
-                  </ul>
-                </li>
-                <li className="more"><a href="javascript:void(0)">Another submenu</a>
-                  <ul className="submenu">
-                    <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                    <li><a href="javascript:void(0)">An Item</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-link"><a href="javascript:void(0)">Sign up</a></li>
+            <li className="nav-link"><a href="javascript:void(0)">Sign In</a></li>
+            <li className="nav-link"><a href="javascript:void(0)">Sign Up</a></li>
           </ul>
         </nav>
       </div>
+      <nav className="js-menu sliding-panel-content">
+        <ul>
+          <li><a href="javascript:void(0)">Sign In</a></li>
+          <li><a href="javascript:void(0)">Sign Up</a></li>
+          <li><a href="javascript:void(0)">Featured</a></li>
+          <li><a href="javascript:void(0)">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div className="js-menu-screen sliding-panel-fade-screen"></div>
     </header>
       )
   }

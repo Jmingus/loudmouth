@@ -2,5 +2,15 @@
         '../node_modules/bourbon/app/assets/stylesheets/bourbon',
         '../node_modules/bourbon-neat/app/assets/stylesheets/neat',
         'base/base',
+        'slidingPanelNav',
         'navComponent';
 
+.centered-navigation ul.centered-navigation-menu.show{
+  display: none;
+}
+@media screen and(min-width: 859px){
+  .centered-navigation ul.centered-navigation-menu.show{
+    display: block;
+  }
+
+}

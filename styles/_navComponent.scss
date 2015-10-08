@@ -1,13 +1,13 @@
   .centered-navigation {
   $base-border-radius: 3px !default;
-  $dark-gray: #333 !default;
+  $dark-gray: #D77D36 !default;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: #E7F1EC;
-  $centered-navigation-color: transparentize($base-font-color, 0.3);
-  $centered-navigation-color-hover: $base-font-color;
+  $centered-navigation-background: #EBD8B4;
+  $centered-navigation-color: #D77D36;
+  $centered-navigation-color-hover: #F14F50;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
   $centered-navigation-submenu-padding: 1em;
@@ -20,6 +20,7 @@
   min-height: $centered-navigation-height;
   width: 100%;
   z-index: 9999;
+  font-size: 20px;
 
   // Mobile view
 
@@ -28,6 +29,7 @@
     float: left;
     max-height: $centered-navigation-height;
     padding-left: $centered-navigation-padding;
+    margin-top: 14px;
 
     img {
       max-height: $centered-navigation-height;
@@ -139,10 +141,15 @@
     }
   }
 
-  .logo img {
+  .logo{
     margin-bottom: -$centered-navigation-logo-height / 3;
     max-height: $centered-navigation-logo-height;
-    opacity: 0.6;
+    > div{
+      font-size: 32px;
+      color: #E54A36;
+      text-shadow: 1px 1px #000;
+    }
+
   }
 
   // Sub menus

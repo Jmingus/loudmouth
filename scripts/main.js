@@ -2,10 +2,23 @@
 var React = require('react');
 var Backbone = require('backbone');
 var ReactDOM = require('react-dom');
+Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
 
 var Router = Backbone.Router.extend({
   routes: {
+    '': 'home',
+    'signup': 'signup',
+    'signin': 'signin'
+  },
+  home: function(){
+
+  },
+  signup: function(){
+
+  },
+  signin: function(){
+
   }
 });
 

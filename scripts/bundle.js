@@ -31703,199 +31703,167 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":29}],161:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var React = require('react');
+var $ = require('jquery');
 
 module.exports = React.createClass({
-  displayName: "exports",
+  displayName: 'exports',
 
+  componentDidMount: function componentDidMount() {
+    $(document).ready(function () {
+      $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart', function (e) {
+        $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+        e.preventDefault();
+      });
+    });
+  },
   render: function render() {
     return React.createElement(
-      "header",
-      { className: "centered-navigation", role: "banner" },
+      'header',
+      { className: 'centered-navigation', role: 'banner' },
       React.createElement(
-        "div",
-        { className: "centered-navigation-wrapper" },
+        'div',
+        { className: 'centered-navigation-wrapper' },
         React.createElement(
-          "a",
-          { href: "javascript:void(0)", className: "mobile-logo" },
-          React.createElement("img", { src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png", alt: "Logo image" })
-        ),
-        React.createElement(
-          "a",
-          { href: "javascript:void(0)", id: "js-centered-navigation-mobile-menu", className: "centered-navigation-mobile-menu" },
-          "MENU"
-        ),
-        React.createElement(
-          "nav",
-          { role: "navigation" },
+          'a',
+          { href: '#', className: 'mobile-logo logo' },
           React.createElement(
-            "ul",
-            { id: "js-centered-navigation-menu", className: "centered-navigation-menu show" },
+            'div',
+            null,
+            'LM'
+          )
+        ),
+        React.createElement(
+          'a',
+          { href: 'javascript:void(0)', className: 'centered-navigation-mobile-menu js-menu-trigger sliding-panel-button' },
+          'MENU'
+        ),
+        React.createElement(
+          'nav',
+          { role: 'navigation' },
+          React.createElement(
+            'ul',
+            { id: 'js-centered-navigation-menu', className: 'centered-navigation-menu show' },
             React.createElement(
-              "li",
-              { className: "nav-link" },
+              'li',
+              { className: 'nav-link' },
               React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "Products"
+                'a',
+                { href: 'javascript:void(0)' },
+                'Featured'
               )
             ),
             React.createElement(
-              "li",
-              { className: "nav-link" },
+              'li',
+              { className: 'nav-link' },
               React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "About Us"
+                'a',
+                { href: 'javascript:void(0)' },
+                'About Us'
               )
             ),
             React.createElement(
-              "li",
-              { className: "nav-link" },
+              'li',
+              { className: 'nav-link logo' },
               React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "Contact"
-              )
-            ),
-            React.createElement(
-              "li",
-              { className: "nav-link logo" },
-              React.createElement(
-                "a",
-                { href: "javascript:void(0)", className: "logo" },
-                React.createElement("img", { src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png", alt: "Logo image" })
-              )
-            ),
-            React.createElement(
-              "li",
-              { className: "nav-link" },
-              React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "Testimonials"
-              )
-            ),
-            React.createElement(
-              "li",
-              { className: "nav-link more" },
-              React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "More"
-              ),
-              React.createElement(
-                "ul",
-                { className: "submenu" },
+                'a',
+                { href: '#', className: 'logo' },
                 React.createElement(
-                  "li",
+                  'div',
                   null,
-                  React.createElement(
-                    "a",
-                    { href: "javascript:void(0)" },
-                    "Submenu Item"
-                  )
-                ),
-                React.createElement(
-                  "li",
-                  null,
-                  React.createElement(
-                    "a",
-                    { href: "javascript:void(0)" },
-                    "Another Item"
-                  )
-                ),
-                React.createElement(
-                  "li",
-                  { className: "more" },
-                  React.createElement(
-                    "a",
-                    { href: "javascript:void(0)" },
-                    "Item with submenu"
-                  ),
-                  React.createElement(
-                    "ul",
-                    { className: "submenu" },
-                    React.createElement(
-                      "li",
-                      null,
-                      React.createElement(
-                        "a",
-                        { href: "javascript:void(0)" },
-                        "Sub-submenu Item"
-                      )
-                    ),
-                    React.createElement(
-                      "li",
-                      null,
-                      React.createElement(
-                        "a",
-                        { href: "javascript:void(0)" },
-                        "Another Item"
-                      )
-                    )
-                  )
-                ),
-                React.createElement(
-                  "li",
-                  { className: "more" },
-                  React.createElement(
-                    "a",
-                    { href: "javascript:void(0)" },
-                    "Another submenu"
-                  ),
-                  React.createElement(
-                    "ul",
-                    { className: "submenu" },
-                    React.createElement(
-                      "li",
-                      null,
-                      React.createElement(
-                        "a",
-                        { href: "javascript:void(0)" },
-                        "Sub-submenu"
-                      )
-                    ),
-                    React.createElement(
-                      "li",
-                      null,
-                      React.createElement(
-                        "a",
-                        { href: "javascript:void(0)" },
-                        "An Item"
-                      )
-                    )
-                  )
+                  'LM'
                 )
               )
             ),
             React.createElement(
-              "li",
-              { className: "nav-link" },
+              'li',
+              { className: 'nav-link' },
               React.createElement(
-                "a",
-                { href: "javascript:void(0)" },
-                "Sign up"
+                'a',
+                { href: 'javascript:void(0)' },
+                'Sign In'
+              )
+            ),
+            React.createElement(
+              'li',
+              { className: 'nav-link' },
+              React.createElement(
+                'a',
+                { href: 'javascript:void(0)' },
+                'Sign Up'
               )
             )
           )
         )
-      )
+      ),
+      React.createElement(
+        'nav',
+        { className: 'js-menu sliding-panel-content' },
+        React.createElement(
+          'ul',
+          null,
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'a',
+              { href: 'javascript:void(0)' },
+              'Sign In'
+            )
+          ),
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'a',
+              { href: 'javascript:void(0)' },
+              'Sign Up'
+            )
+          ),
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'a',
+              { href: 'javascript:void(0)' },
+              'Featured'
+            )
+          ),
+          React.createElement(
+            'li',
+            null,
+            React.createElement(
+              'a',
+              { href: 'javascript:void(0)' },
+              'About Us'
+            )
+          )
+        )
+      ),
+      React.createElement('div', { className: 'js-menu-screen sliding-panel-fade-screen' })
     );
   }
 });
 
-},{"react":160}],162:[function(require,module,exports){
+},{"jquery":4,"react":160}],162:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
 var ReactDOM = require('react-dom');
+Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
 
 var Router = Backbone.Router.extend({
-  routes: {}
+  routes: {
+    '': 'home',
+    'signup': 'signup',
+    'signin': 'signin'
+  },
+  home: function home() {},
+  signup: function signup() {},
+  signin: function signin() {}
 });
 
 var r = new Router();
