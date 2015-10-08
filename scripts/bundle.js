@@ -31855,6 +31855,11 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: "exports",
 
+  getInitialState: function getInitialState() {
+    return {
+      error: null
+    };
+  },
   render: function render() {
     return React.createElement(
       "div",
@@ -31867,8 +31872,8 @@ module.exports = React.createClass({
           null,
           "Sign Up"
         ),
-        React.createElement("input", { type: "text", placeholder: "Username" }),
-        React.createElement("input", { type: "password", placeholder: "Password" }),
+        React.createElement("input", { type: "text", placeholder: "Username", ref: "userName" }),
+        React.createElement("input", { type: "password", placeholder: "Password", ref: "password" }),
         React.createElement(
           "div",
           null,
@@ -31877,11 +31882,29 @@ module.exports = React.createClass({
         React.createElement(
           "label",
           { className: "label-switch" },
-          React.createElement("input", { type: "checkbox" }),
+          React.createElement("input", { type: "checkbox", ref: "blogPrivacy" }),
           React.createElement("div", { className: "checkbox" })
         )
       )
     );
+  },
+  signUp: function signUp(e) {
+    var _this = this;
+
+    e.preventDefault();
+    Parse.User.signUp({
+      username: this.refs.userName.value,
+      password: this.refs.password.value,
+      blogPrivacy: this.refs.blogPrivacy.checked,
+      admin: false
+    }, {
+      success: function success(user) {},
+      error: function error(user, err) {
+        _this.setState({
+          error: err.message
+        });
+      }
+    });
   }
 });
 
