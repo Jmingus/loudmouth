@@ -29,14 +29,14 @@ module.exports = React.createClass({
               </a>
             </li>
             <li className="nav-link"><a href="javascript:void(0)">Sign In</a></li>
-            <li className="nav-link"><a href="javascript:void(0)">Sign Up</a></li>
+            <li className="nav-link"><a href="#signup">Sign Up</a></li>
           </ul>
         </nav>
       </div>
       <nav className="js-menu sliding-panel-content">
         <ul>
           <li><a href="javascript:void(0)">Sign In</a></li>
-          <li><a href="javascript:void(0)">Sign Up</a></li>
+          <li><a href="#signup">Sign Up</a></li>
           <li><a href="javascript:void(0)">Featured</a></li>
           <li><a href="javascript:void(0)">About Us</a></li>
         </ul>

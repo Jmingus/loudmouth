@@ -3,7 +3,36 @@
         '../node_modules/bourbon-neat/app/assets/stylesheets/neat',
         'base/base',
         'slidingPanelNav',
+        'labelSwitch',
         'navComponent';
+
+
+#signup{
+  @include outer-container;
+  input {@include span-columns(6)};
+  label {@include span-columns(6)};
+  background-color: #796855;
+  padding: 2em;
+  margin-top: 5em;
+  box-shadow: 2px 2px 2px #000;
+  h1{
+    font-size: 32px;
+    color: #EBD8B4;
+  }
+  div{
+    color: #EBD8B4;
+    text-align: center;
+  }
+  label{
+    .checkbox{
+      margin: 0 auto;
+    }
+    input[type='checkbox']{
+      opacity: 0;
+    }
+  }
+
+}
 
 .centered-navigation ul.centered-navigation-menu.show{
   display: none;

@@ -4,6 +4,8 @@ var Backbone = require('backbone');
 var ReactDOM = require('react-dom');
 Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
+var SignUpComponent = require('./components/SignUpComponent');
+var app = document.getElementById('app')
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -15,7 +17,10 @@ var Router = Backbone.Router.extend({
 
   },
   signup: function(){
-
+    ReactDOM.render(
+      <SignUpComponent / >,
+      app
+    );
   },
   signin: function(){
 
@@ -28,4 +33,4 @@ Backbone.history.start();
 ReactDOM.render(
   <NavComponent router={r} />,
   document.getElementById('nav')
-  )
+);

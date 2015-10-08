@@ -31791,7 +31791,7 @@ module.exports = React.createClass({
               { className: 'nav-link' },
               React.createElement(
                 'a',
-                { href: 'javascript:void(0)' },
+                { href: '#signup' },
                 'Sign Up'
               )
             )
@@ -31818,7 +31818,7 @@ module.exports = React.createClass({
             null,
             React.createElement(
               'a',
-              { href: 'javascript:void(0)' },
+              { href: '#signup' },
               'Sign Up'
             )
           ),
@@ -31848,12 +31848,52 @@ module.exports = React.createClass({
 });
 
 },{"jquery":4,"react":160}],162:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: "exports",
+
+  render: function render() {
+    return React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "form",
+        { id: "signup" },
+        React.createElement(
+          "h1",
+          null,
+          "Sign Up"
+        ),
+        React.createElement("input", { type: "text", placeholder: "Username" }),
+        React.createElement("input", { type: "password", placeholder: "Password" }),
+        React.createElement(
+          "div",
+          null,
+          "Do you want your blog to be public?"
+        ),
+        React.createElement(
+          "label",
+          { className: "label-switch" },
+          React.createElement("input", { type: "checkbox" }),
+          React.createElement("div", { className: "checkbox" })
+        )
+      )
+    );
+  }
+});
+
+},{"react":160}],163:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
 var ReactDOM = require('react-dom');
 Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0JqVJZ77fKXE4SdaayDPAfs');
 var NavComponent = require('./components/NavComponent');
+var SignUpComponent = require('./components/SignUpComponent');
+var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -31862,7 +31902,9 @@ var Router = Backbone.Router.extend({
     'signin': 'signin'
   },
   home: function home() {},
-  signup: function signup() {},
+  signup: function signup() {
+    ReactDOM.render(React.createElement(SignUpComponent, null), app);
+  },
   signin: function signin() {}
 });
 
@@ -31871,7 +31913,7 @@ Backbone.history.start();
 
 ReactDOM.render(React.createElement(NavComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/NavComponent":161,"backbone":1,"react":160,"react-dom":5}]},{},[162])
+},{"./components/NavComponent":161,"./components/SignUpComponent":162,"backbone":1,"react":160,"react-dom":5}]},{},[163])
 
 
 //# sourceMappingURL=bundle.js.map
