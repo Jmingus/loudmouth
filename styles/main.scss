@@ -5,7 +5,14 @@
         'slidingPanelNav',
         'labelSwitch',
         'navComponent';
-
+button{
+  outline: none;
+}
+input[type="text"]:focus,
+textarea:focus{
+ border-color: #BCA97A;
+ box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px #EBD8B4;
+}
 #signup{
   @include outer-container;
   .left {@include span-columns(6)};
@@ -83,7 +90,53 @@
 
 }
 
+.AddPostComponent{
+  @extend .BlogComponent;
+  background-color: #796855;
+  box-shadow: 2px 2px 2px #000;
+  margin-top: 2em;
+  padding: 2em;
+  color: #ECD8B2;
+  .title{
+    font-size: 32px;
+    vertical-align: middle;
+    font-family: Open-Sans;
+    float: left;
+    i{
+      height: 32px;
+      width: 32px;
+    }
+  }
+  .addPostButton{
+    right: 28%;
+    height: 34px;
+    border-radius: 7px;
+    border: 1px solid #ECD8B2;
+    width: 34px;
+    position: absolute;
+    background-color: #ECD8B2;
+    box-shadow: 2px 2px 2px #000;
 
+    .postButton{
+       font-size: 40px;
+       color: #E7492E;
+       outline: none;
+    }
+    .fa-plus-square{
+        position: relative;
+        top: -4px;
+        left: -1px;
+    }
+  }
+  label{
+  clear: both;
+  }
+  .postContent{
+    resize: none;
+    height: 25em;
+  }
+
+}
 
 .centered-navigation ul.centered-navigation-menu.show{
   display: none;

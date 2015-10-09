@@ -31711,6 +31711,49 @@ module.exports = React.createClass({
   displayName: "exports",
 
   render: function render() {
+    return React.createElement(
+      "div",
+      { className: "AddPostComponent" },
+      React.createElement(
+        "h1",
+        { className: "title" },
+        React.createElement("i", { className: "fa fa-pencil" }),
+        "New Blog Post"
+      ),
+      React.createElement(
+        "a",
+        { className: "addPostButton", href: "#blog" },
+        React.createElement("i", { className: "fa fa-plus-square postButton" })
+      ),
+      React.createElement(
+        "form",
+        null,
+        React.createElement(
+          "label",
+          null,
+          "Post Title",
+          React.createElement("input", { type: "text" })
+        ),
+        React.createElement(
+          "label",
+          null,
+          "Post Content ",
+          React.createElement("textarea", { className: "postContent" })
+        )
+      )
+    );
+  }
+});
+
+},{"react":160}],162:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: "exports",
+
+  render: function render() {
     var firstLetter = null;
     return React.createElement(
       "div",
@@ -31720,7 +31763,7 @@ module.exports = React.createClass({
         { className: "addPost" },
         React.createElement(
           "a",
-          { href: "#blog/newBlogPost" },
+          { href: "#blog/addpost" },
           React.createElement(
             "button",
             { className: "newBlogPost" },
@@ -31755,7 +31798,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":160}],162:[function(require,module,exports){
+},{"react":160}],163:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -31961,7 +32004,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"backbone":1,"jquery":4,"react":160}],163:[function(require,module,exports){
+},{"backbone":1,"jquery":4,"react":160}],164:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -32017,7 +32060,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":160}],164:[function(require,module,exports){
+},{"react":160}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32094,7 +32137,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":160}],165:[function(require,module,exports){
+},{"react":160}],166:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
@@ -32104,6 +32147,7 @@ var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
 var SignInComponent = require('./components/SignInComponent');
 var BlogComponent = require('./components/BlogComponent');
+var AddPostComponent = require('./components/AddPostComponent');
 var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
@@ -32112,6 +32156,7 @@ var Router = Backbone.Router.extend({
     'signUp': 'signup',
     'signIn': 'signin',
     'blog': 'blog',
+    'blog/addpost': 'addpost',
     'featured': 'featured',
     'aboutUs': 'aboutUs'
   },
@@ -32124,6 +32169,9 @@ var Router = Backbone.Router.extend({
   },
   blog: function blog() {
     ReactDOM.render(React.createElement(BlogComponent, null), app);
+  },
+  addpost: function addpost() {
+    ReactDOM.render(React.createElement(AddPostComponent, { router: r }), app);
   }
 });
 
@@ -32132,7 +32180,7 @@ Backbone.history.start();
 
 ReactDOM.render(React.createElement(NavComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/BlogComponent":161,"./components/NavComponent":162,"./components/SignInComponent":163,"./components/SignUpComponent":164,"backbone":1,"react":160,"react-dom":5}]},{},[165])
+},{"./components/AddPostComponent":161,"./components/BlogComponent":162,"./components/NavComponent":163,"./components/SignInComponent":164,"./components/SignUpComponent":165,"backbone":1,"react":160,"react-dom":5}]},{},[166])
 
 
 //# sourceMappingURL=bundle.js.map

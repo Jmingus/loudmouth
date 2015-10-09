@@ -6,7 +6,7 @@ module.exports = React.createClass({
     return(
       <div className="BlogComponent">
         <div className="addPost">
-          <a href="#blog/newBlogPost"><button className="newBlogPost">New Blog Post</button></a>
+          <a href="#blog/addpost"><button className="newBlogPost">New Blog Post</button></a>
         </div>
         <div className="blogPostContainer">
           <div className="titleContainer">
