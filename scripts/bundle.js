@@ -31703,6 +31703,59 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":29}],161:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+  displayName: "exports",
+
+  render: function render() {
+    var firstLetter = null;
+    return React.createElement(
+      "div",
+      { className: "BlogComponent" },
+      React.createElement(
+        "div",
+        { className: "addPost" },
+        React.createElement(
+          "a",
+          { href: "#blog/newBlogPost" },
+          React.createElement(
+            "button",
+            { className: "newBlogPost" },
+            "New Blog Post"
+          )
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "blogPostContainer" },
+        React.createElement(
+          "div",
+          { className: "titleContainer" },
+          React.createElement(
+            "span",
+            { className: "blog-bullet" },
+            firstLetter
+          ),
+          React.createElement(
+            "span",
+            { className: "title" },
+            "Title"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "content" },
+          "Content"
+        )
+      )
+    );
+  }
+});
+
+},{"react":160}],162:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -31908,7 +31961,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"backbone":1,"jquery":4,"react":160}],162:[function(require,module,exports){
+},{"backbone":1,"jquery":4,"react":160}],163:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -31964,7 +32017,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":160}],163:[function(require,module,exports){
+},{"react":160}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32041,7 +32094,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":160}],164:[function(require,module,exports){
+},{"react":160}],165:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
@@ -32050,6 +32103,7 @@ Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0
 var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
 var SignInComponent = require('./components/SignInComponent');
+var BlogComponent = require('./components/BlogComponent');
 var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
@@ -32067,6 +32121,9 @@ var Router = Backbone.Router.extend({
   },
   signin: function signin() {
     ReactDOM.render(React.createElement(SignInComponent, { router: r }), app);
+  },
+  blog: function blog() {
+    ReactDOM.render(React.createElement(BlogComponent, null), app);
   }
 });
 
@@ -32075,7 +32132,7 @@ Backbone.history.start();
 
 ReactDOM.render(React.createElement(NavComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/NavComponent":161,"./components/SignInComponent":162,"./components/SignUpComponent":163,"backbone":1,"react":160,"react-dom":5}]},{},[164])
+},{"./components/BlogComponent":161,"./components/NavComponent":162,"./components/SignInComponent":163,"./components/SignUpComponent":164,"backbone":1,"react":160,"react-dom":5}]},{},[165])
 
 
 //# sourceMappingURL=bundle.js.map

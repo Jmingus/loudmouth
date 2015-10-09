@@ -42,11 +42,64 @@
 #signIn{
   @extend #signup
 }
+
+.BlogComponent{
+  padding: 1em 0 0 0;
+  margin: 0 auto;
+  div.blogPostContainer{
+    .titleContainer{
+      margin-left: 1em;
+      .blog-bullet{
+        height: 48px;
+        width: 48px;
+        background: #E54A35;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 1em;
+        vertical-align: middle;
+        box-shadow: 2px 2px 2px #000;
+      }
+      .title{
+        font-size: 32px;
+        vertical-align: middle;
+        font-family: Open-Sans;
+      }
+    }
+    .content{
+      margin: 3em 0 0 5em;
+      font-size: 18px;
+    }
+  }
+  .addPost{
+    clear: both;
+    margin-right: 1em;
+    height: 48px;
+    .newBlogPost{
+      float: right;
+      background: #E7492E;
+      box-shadow: 2px 2px 2px #000;
+    }
+  }
+
+}
+
+
+
 .centered-navigation ul.centered-navigation-menu.show{
   display: none;
+}
+@media screen and(min-width: 700px){
+    .BlogComponent{
+      max-width: 70%;
+    }
 }
 @media screen and(min-width: 860px){
   .centered-navigation ul.centered-navigation-menu.show{
     display: block;
+  }
+}
+@media screen and(min-width: 1240px){
+  .BlogComponent{
+    max-width: 50%;
   }
 }

@@ -6,6 +6,7 @@ Parse.initialize('eAdXUAgf7CTOWUUBMsMCDeBialjrjiXRbuvsXcbA', 'rPsIje8zEtIgr5BQI0
 var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
 var SignInComponent = require('./components/SignInComponent');
+var BlogComponent = require('./components/BlogComponent');
 var app = document.getElementById('app')
 
 var Router = Backbone.Router.extend({
@@ -29,6 +30,12 @@ var Router = Backbone.Router.extend({
   signin: function(){
     ReactDOM.render(
       <SignInComponent router={r} />,
+      app
+    );
+  },
+  blog: function(){
+    ReactDOM.render(
+      <BlogComponent />,
       app
     );
   }
