@@ -29,6 +29,7 @@
     "bourbon-neat": "^1.7.2",
     "jquery": "^2.1.4",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.0",
+    "react-wysiwyg-editor": "0.0.7"
   }
 }

@@ -1,23 +1,39 @@
 var React = require('react');
+var BlogModel = require('../models/BlogModel');
+var BlogPostComponent = require('./BlogPostComponent');
 
 module.exports = React.createClass({
+  getInitialState: function(){
+      return{
+          blogPosts: []
+      }
+  },
+  componentWillMount: function(){
+      this.query = new Parse.Query(BlogModel);
+      this.fetch();
+  },
   render: function(){
-    var firstLetter = null;
+      var allBlogPosts = this.state.blogPosts.map(function(blog){
+         return  <BlogPostComponent key={blog.id} blog={blog} />
+      });
     return(
       <div className="BlogComponent">
         <div className="addPost">
           <a href="#blog/addpost"><button className="newBlogPost">New Blog Post</button></a>
         </div>
-        <div className="blogPostContainer">
-          <div className="titleContainer">
-            <span className="blog-bullet">{firstLetter}</span>
-            <span className="title">Title</span>
-          </div>
-          <div className="content">
-          Content
-          </div>
-        </div>
+          {allBlogPosts}
       </div>
       )
+  },
+  fetch: function(){
+      this.query.find().then(
+          (blogPosts) => {
+              this.setState({blogPosts: blogPosts})
+          },
+          (err) => {
+              console.log(err)
+          }
+
+      );
   }
-})
+});

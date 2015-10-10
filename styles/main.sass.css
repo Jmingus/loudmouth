@@ -627,24 +627,6 @@ textarea:focus {
 .BlogComponent, .AddPostComponent {
   padding: 1em 0 0 0;
   margin: 0 auto; }
-  .BlogComponent div.blogPostContainer .titleContainer, .AddPostComponent div.blogPostContainer .titleContainer {
-    margin-left: 1em; }
-    .BlogComponent div.blogPostContainer .titleContainer .blog-bullet, .AddPostComponent div.blogPostContainer .titleContainer .blog-bullet {
-      height: 48px;
-      width: 48px;
-      background: #E54A35;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 1em;
-      vertical-align: middle;
-      box-shadow: 2px 2px 2px #000; }
-    .BlogComponent div.blogPostContainer .titleContainer .title, .AddPostComponent div.blogPostContainer .titleContainer .title {
-      font-size: 32px;
-      vertical-align: middle;
-      font-family: Open-Sans; }
-  .BlogComponent div.blogPostContainer .content, .AddPostComponent div.blogPostContainer .content {
-    margin: 3em 0 0 5em;
-    font-size: 18px; }
   .BlogComponent .addPost, .AddPostComponent .addPost {
     clear: both;
     margin-right: 1em;
@@ -654,10 +636,35 @@ textarea:focus {
       background: #E7492E;
       box-shadow: 2px 2px 2px #000; }
 
+.BlogPostComponent div.blogPostContainer .titleContainer {
+  margin-left: 1em; }
+  .BlogPostComponent div.blogPostContainer .titleContainer .blog-bullet {
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    font-size: 33px;
+    color: #E8E8E8;
+    font-family: Open-Sans;
+    background: #E54A35;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 1em;
+    vertical-align: middle;
+    box-shadow: 2px 2px 2px #000; }
+  .BlogPostComponent div.blogPostContainer .titleContainer .title {
+    font-size: 32px;
+    vertical-align: middle;
+    font-family: Open-Sans; }
+
+.BlogPostComponent div.blogPostContainer .content {
+  margin: 3em 0 3em 5em;
+  font-size: 18px; }
+
 .AddPostComponent {
   background-color: #796855;
   box-shadow: 2px 2px 2px #000;
   margin-top: 2em;
+  margin-bottom: 2em;
   padding: 2em;
   color: #ECD8B2; }
   .AddPostComponent .title {
@@ -668,6 +675,12 @@ textarea:focus {
     .AddPostComponent .title i {
       height: 32px;
       width: 32px; }
+  .AddPostComponent select {
+    font-size: 20px;
+    margin: 0;
+    background-color: #ECD8B2;
+    border-color: #E7492E;
+    outline: none; }
   .AddPostComponent .addPostButton {
     right: 28%;
     height: 34px;

@@ -7,8 +7,8 @@ var NavComponent = require('./components/NavComponent');
 var SignUpComponent = require('./components/SignUpComponent');
 var SignInComponent = require('./components/SignInComponent');
 var BlogComponent = require('./components/BlogComponent');
-var AddPostComponent = require('./components/AddPostComponent')
-var app = document.getElementById('app')
+var AddPostComponent = require('./components/AddPostComponent');
+var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
   routes: {
