@@ -636,29 +636,40 @@ textarea:focus {
       background: #E7492E;
       box-shadow: 2px 2px 2px #000; }
 
-.BlogPostComponent div.blogPostContainer .titleContainer {
-  margin-left: 1em; }
-  .BlogPostComponent div.blogPostContainer .titleContainer .blog-bullet {
-    height: 48px;
-    width: 48px;
-    text-align: center;
-    font-size: 33px;
-    color: #E8E8E8;
-    font-family: Open-Sans;
-    background: #E54A35;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 1em;
-    vertical-align: middle;
-    box-shadow: 2px 2px 2px #000; }
-  .BlogPostComponent div.blogPostContainer .titleContainer .title {
-    font-size: 32px;
-    vertical-align: middle;
-    font-family: Open-Sans; }
+.BlogPostComponent div.blogPostContainer, .BlogDetailsComponent div.blogPostContainer {
+  background: #796854;
+  border-radius: 40px;
+  padding: 2em;
+  box-shadow: 1px 1px 1px #000; }
+  .BlogPostComponent div.blogPostContainer .titleContainer, .BlogDetailsComponent div.blogPostContainer .titleContainer {
+    margin-left: 1em; }
+    .BlogPostComponent div.blogPostContainer .titleContainer .blog-bullet, .BlogDetailsComponent div.blogPostContainer .titleContainer .blog-bullet {
+      height: 48px;
+      width: 48px;
+      text-align: center;
+      font-size: 33px;
+      color: #E8E8E8;
+      font-family: Open-Sans;
+      background: #E54A35;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 1em;
+      vertical-align: middle;
+      box-shadow: 2px 2px 2px #000; }
+    .BlogPostComponent div.blogPostContainer .titleContainer .title, .BlogDetailsComponent div.blogPostContainer .titleContainer .title {
+      color: #fff;
+      font-size: 32px;
+      vertical-align: middle;
+      font-family: Open-Sans; }
+  .BlogPostComponent div.blogPostContainer .content, .BlogDetailsComponent div.blogPostContainer .content {
+    color: #fff;
+    margin: 3em 0 3em 5em;
+    font-size: 18px;
+    white-space: pre-wrap; }
 
-.BlogPostComponent div.blogPostContainer .content {
-  margin: 3em 0 3em 5em;
-  font-size: 18px; }
+.BlogDetailsComponent {
+  min-width: 30%;
+  margin: 2em auto; }
 
 .AddPostComponent {
   background-color: #796855;
@@ -704,11 +715,16 @@ textarea:focus {
     resize: none;
     height: 25em; }
 
+body {
+  background-image: url("../images/seamless_paper_texture.png"); }
+
 .centered-navigation ul.centered-navigation-menu.show {
   display: none; }
 
 @media screen and (min-width: 700px) {
   .BlogComponent, .AddPostComponent {
+    max-width: 70%; }
+  .BlogDetailsComponent {
     max-width: 70%; } }
 
 @media screen and (min-width: 860px) {

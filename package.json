@@ -30,6 +30,7 @@
     "jquery": "^2.1.4",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-wysiwyg": "^2.1.7",
     "react-wysiwyg-editor": "0.0.7"
   }
 }

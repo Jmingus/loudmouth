@@ -1,16 +1,7 @@
 var React = require('react');
 var BlogModel = require('../models/BlogModel');
-var EditableDiv = require('react-wysiwyg-editor');
 
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {
-      content: 'initial content'
-    };
-  },
-  handleContentChange: function(e) {
-     this.setState({content: e.target.value});
-  },
   render: function(){
     return(
       <div className="AddPostComponent">
@@ -18,7 +9,7 @@ module.exports = React.createClass({
         <a className="addPostButton" href="#blog" onClick={this.addBlogPost}><i className="fa fa-plus-square postButton"></i></a>
           <form onSubmit={this.addBlogPost}>
             <label>Post Title<input type="text" ref="title" /></label>
-            <label>Post Content <EditableDiv content={this.state.content} onChange={this.handleContentChange} /></label>
+            <label>Post Content <textarea className="postContent" ref="content" /></label>
             <select ref="catagory">
               <option defaultValue="" selected disabled >Category</option>
               <option defaultValue="tech">Tech</option>
@@ -35,7 +26,7 @@ module.exports = React.createClass({
     e.preventDefault();
     var newPost = new BlogModel({
         postTitle: this.refs.title.value,
-        postContent: this.state.content,
+        postContent: this.refs.content.value,
         userId: Parse.User.current(),
         catagory: this.refs.catagory.value
     });

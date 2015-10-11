@@ -26,6 +26,7 @@ module.exports = React.createClass({
       )
   },
   fetch: function(){
+      this.query.equalTo('userId', Parse.User.current());
       this.query.find().then(
           (blogPosts) => {
               this.setState({blogPosts: blogPosts})

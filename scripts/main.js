@@ -8,6 +8,7 @@ var SignUpComponent = require('./components/SignUpComponent');
 var SignInComponent = require('./components/SignInComponent');
 var BlogComponent = require('./components/BlogComponent');
 var AddPostComponent = require('./components/AddPostComponent');
+var BlogDetailsComponent = require('./components/BlogDetailsComponent');
 var app = document.getElementById('app');
 
 var Router = Backbone.Router.extend({
@@ -17,6 +18,7 @@ var Router = Backbone.Router.extend({
     'signIn': 'signin',
     'blog' : 'blog',
     'blog/addpost': 'addpost',
+    'blog/:id': 'blogdetails',
     'featured': 'featured',
     'aboutUs': 'aboutUs'
   },
@@ -25,7 +27,7 @@ var Router = Backbone.Router.extend({
   },
   signup: function(){
     ReactDOM.render(
-      <SignUpComponent router={r}/ >,
+      <SignUpComponent router={r} />,
       app
     );
   },
@@ -46,6 +48,12 @@ var Router = Backbone.Router.extend({
       <AddPostComponent router={r} />,
       app
     )
+  },
+  blogdetails: function(id){
+      ReactDOM.render(
+          <BlogDetailsComponent postId={id} router={r} />,
+          app
+      )
   }
 });
 

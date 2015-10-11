@@ -5,6 +5,8 @@
         'slidingPanelNav',
         'labelSwitch',
         'navComponent';
+
+
 button{
   outline: none;
 }
@@ -66,6 +68,10 @@ textarea:focus{
 }
 .BlogPostComponent {
   div.blogPostContainer {
+    background: #796854;
+    border-radius: 40px;
+    padding: 2em;
+    box-shadow: 1px 1px 1px #000;
     .titleContainer {
       margin-left: 1em;
       .blog-bullet {
@@ -83,17 +89,26 @@ textarea:focus{
         box-shadow: 2px 2px 2px #000;
       }
       .title {
+        color: #fff;
         font-size: 32px;
         vertical-align: middle;
         font-family: Open-Sans;
       }
     }
     .content {
+      color: #fff;
       margin: 3em 0 3em 5em;
       font-size: 18px;
+      white-space: pre-wrap;
     }
   }
 }
+.BlogDetailsComponent{
+  @extend .BlogPostComponent;
+  min-width: 30%;
+  margin: 2em auto;
+}
+
 .AddPostComponent{
   @extend .BlogComponent;
   background-color: #796855;
@@ -150,11 +165,17 @@ textarea:focus{
 
 }
 
+body {
+  background-image: url('../images/seamless_paper_texture.png');
+}
 .centered-navigation ul.centered-navigation-menu.show{
   display: none;
 }
 @media screen and(min-width: 700px){
     .BlogComponent{
+      max-width: 70%;
+    }
+    .BlogDetailsComponent{
       max-width: 70%;
     }
 }
