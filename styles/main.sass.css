@@ -640,7 +640,8 @@ textarea:focus {
   background: #796854;
   border-radius: 40px;
   padding: 2em;
-  box-shadow: 1px 1px 1px #000; }
+  box-shadow: 1px 1px 1px #000;
+  margin-bottom: 2em; }
   .BlogPostComponent div.blogPostContainer .titleContainer, .BlogDetailsComponent div.blogPostContainer .titleContainer {
     margin-left: 1em; }
     .BlogPostComponent div.blogPostContainer .titleContainer .blog-bullet, .BlogDetailsComponent div.blogPostContainer .titleContainer .blog-bullet {

@@ -9,8 +9,6 @@ module.exports = React.createClass({
         })
     },
     componentWillMount: function(){
-        this.userQuery = new Parse.Query(Parse.User);
-        this.query = new Parse.Query(BlogModel);
         this.fetchFeatured();
     },
     render: function() {
@@ -24,8 +22,10 @@ module.exports = React.createClass({
         );
     },
     fetchFeatured: function() {
-        this.userQuery.equalTo('blogPrivacy', true);
-        this.query.matchesQuery('userId', this.userQuery.id);
+        var User = new Parse.Query(Parse.User);
+        var Post = new Parse.Query(BlogModel);
+        User.equalTo('blogPrivacy', true);
+        Post.matchesQuery('user', User);
         this.query.find().then(
             (featuredContent) => {
                 this.setState({featuredContent: featuredContent})
