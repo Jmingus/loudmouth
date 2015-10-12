@@ -32168,7 +32168,7 @@ module.exports = React.createClass({
   signOut: function signOut(e) {
     e.preventDefault();
     Parse.User.logOut();
-    this.props.router.navigate('', { trigger: true });
+    this.props.router.navigate('featured', { trigger: true });
   }
 });
 
